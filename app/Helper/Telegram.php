@@ -49,7 +49,7 @@ class Telegram
                     self::send($chat_id, "Sizning chat_id'ingiz: <code>{$chat_id}</code>");
                 }
             } else {
-                self::send($chat_id, "👋 Salom! Botdan foydalanishni boshlash uchun <b>/start</b> buyrug‘ini bosing.");
+                self::send($chat_id, "👋 Salom! Sizning chat_id ingiz: <code>{$chat_id}</code> ");
             }
         }
     }
