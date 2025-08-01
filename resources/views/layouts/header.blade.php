@@ -135,7 +135,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard.events.create')}}">
+                        <a class="nav-link" href="{{ route('dashboard.events.index')}}">
                             <i class="ti-info-alt menu-icon"></i>
                             <span class="menu-arrow">Eslatmalar</span>
                         </a>

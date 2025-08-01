@@ -68,10 +68,10 @@ switch ($request->repeat_type) {
                 'description' => $request->description,
                 'colors' => $request->color,
                 'repeat_type' => $request->repeat_type,
-                'repeat_interval' => 1,
+                'repeat_interval' =>  json_encode($request->event_times),
                 'repeat_days_moth' => json_encode($repeatDays),
-                'start_date' => json_encode($request->event_times),
-                'end_date' => 1, // default bo'sh array
+                'start_date' =>$request->start_date,
+                'end_date' => $request->end_date, 
                 'status' => 'active'
             ]);
 
