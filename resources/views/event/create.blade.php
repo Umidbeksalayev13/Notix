@@ -181,30 +181,34 @@
                 </div>
             </div>
 
+
 @include('layouts.footer')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script>
     // Initialize time options
     function initializeTimeOptions() {
-        const timeOptions = [];
-        for (let hour = 0; hour < 24; hour++) {
-            timeOptions.push(`${hour.toString().padStart(2, '0')}:00`);
-            timeOptions.push(`${hour.toString().padStart(2, '0')}:30`);
-        }
-
-        // Add options to all time selects
-        document.querySelectorAll('select[name="event_times[]"]').forEach(select => {
-            select.innerHTML = '';
-            timeOptions.forEach(time => {
-                const option = document.createElement('option');
-                option.value = time;
-                option.textContent = time;
-                if (time === '09:00') option.selected = true;
-                select.appendChild(option);
-            });
-        });
+    const timeOptions = [];
+    for (let hour = 0; hour < 24; hour++) {
+        timeOptions.push(`${hour.toString().padStart(2, '0')}:00`);
+        timeOptions.push(`${hour.toString().padStart(2, '0')}:30`);
     }
+
+    // Add options to all time selects
+    document.querySelectorAll('select[name="event_times[]"]').forEach(select => {
+        const currentValue = select.value; // eski qiymatni saqlab olamiz
+        select.innerHTML = '';
+        timeOptions.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time;
+            option.textContent = time;
+            select.appendChild(option);
+        });
+        // Agar eski qiymat bo'lsa o'shani tiklaymiz, bo'lmasa default 09:00 bo'ladi
+        select.value = currentValue || '09:00';
+    });
+}
+
 
     // Initialize monthly days
     function initializeMonthlyDays() {

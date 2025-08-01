@@ -10,7 +10,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('/dashboard')->middleware('auth')->name('dashboard.')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::resource('events', EventsController::class);
 });
 

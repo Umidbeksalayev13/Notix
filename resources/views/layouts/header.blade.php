@@ -128,22 +128,22 @@
             <!-- partial:../../partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard.') }}">
+                    <li class="nav-item ">
+                        <a class="nav-link " href="{{ route('dashboard.index') }}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-arrow">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard.events.create')}}">
-                            <i class="icon-grid menu-icon"></i>
+                            <i class="ti-info-alt menu-icon"></i>
                             <span class="menu-arrow">Eslatmalar</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link" >
                             <i class="ti-settings menu-icon"></i>
-                            <span class="menu-arrow">Sozlamalar</span>
+                            <span class="menu-arrow ">Sozlamalar</span>
                         </a>
                     </li>
                 </ul>

@@ -76,9 +76,7 @@ switch ($request->repeat_type) {
             ]);
 
             return redirect()->route('dashboard.events.index')
-                           ->with('success', 'Event muvaffaqiyatli yaratildi!');
-
-
+                ->with('success', 'Event muvaffaqiyatli yaratildi!');
         }
 
 
