@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
+            {{ __('Profil') }}
         </h2>
     </x-slot>
 
@@ -25,13 +25,13 @@
 
 
                     @endif
-                        {{-- Chat ID yo‘q — telegramga ulanish tugmasi va form chiqadi --}}
+                        {{-- Chat ID yo`q — telegramga ulanish tugmasi va form chiqadi --}}
                         <a class="btn btn-primary"
                            href="https://t.me/notification_reminder1_bot?start={{ auth()->id() }}">
                             <i class="bi bi-telegram"></i> Telegram botga ulanish
                         </a>
 
-                        {{-- Chat ID qo‘lda kiritish --}}
+                        {{-- Chat ID qo`lda kiritish --}}
                         <form method="POST" action="{{route('telegram.account')}}">
                             @csrf
                             <div class="mt-4">

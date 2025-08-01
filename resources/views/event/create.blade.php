@@ -46,7 +46,7 @@
                     <div class="col-md-12">
                         <div class="card shadow">
                             <div class="card-header bg-primary text-white">
-                                <h3 class="card-title mb-0">Deployment Strategy Configuration</h3>
+                                <h3 class="card-title mb-0">Eslatma yaratish formasi</h3>
                             </div>
                             <div class="card-body">
                                 <form action="{{ route('dashboard.events.store') }}" method="POST">
@@ -54,14 +54,14 @@
                                     <div style="padding-left: 30px;">
                                         <!-- Title -->
                                         <div class="mb-3">
-                                            <label for="title" class="form-label">Strategy Title</label>
+                                            <label for="title" class="form-label">Nomi</label>
                                             <input type="text" name="title" class="form-control" id="title"
-                                                placeholder="Enter deployment strategy title" required>
+                                                placeholder="Eslatma nomini kiriting" required>
                                         </div>
 
                                         <!-- Color -->
                                         <div class="mb-3">
-                                            <label for="color" class="form-label">Color Theme</label>
+                                            <label for="color" class="form-label">Rang</label>
                                             <div class="d-flex align-items-center">
                                                 <input type="color" name="color"
                                                     class="form-control form-control-color" id="color"
@@ -74,72 +74,72 @@
 
                                         <!-- Description -->
                                         <div class="mb-3">
-                                            <label for="description" class="form-label">Description</label>
+                                            <label for="description" class="form-label">Tavsif</label>
                                             <textarea name="description" class="form-control" id="description" rows="3"
-                                                placeholder="Describe your deployment strategy" required></textarea>
+                                                placeholder="Tavsif yozing" required></textarea>
                                         </div>
 
                                         <!-- Frequency -->
                                         <div class="mb-3">
-                                            <label for="frequency" class="form-label">Deployment Frequency</label>
+                                            <label for="frequency" class="form-label">Eslatma takrorlanishi</label>
                                             <select class="form-select" name="repeat_type" id="frequency"
                                                 onchange="toggleFrequencyOptions()">
-                                                <option value="daily">Daily</option>
-                                                <option value="weekly">Weekly</option>
-                                                <option value="monthly">Monthly</option>
+                                                <option value="daily">Kunlik</option>
+                                                <option value="weekly">Haftalik</option>
+                                                <option value="monthly">Oylik</option>
                                             </select>
                                         </div>
 
                                         <!-- Daily Options -->
                                         <div class="mb-3" id="dailyOptions">
-                                            <label for="dailyInterval" class="form-label">Every N Days</label>
+                                            <label for="dailyInterval" class="form-label">Har N kun</label>
                                             <input type="number" name="repeat_days" class="form-control"
                                                 id="dailyInterval" min="1">
                                         </div>
 
                                         <!-- Weekly Options -->
                                         <div class="mb-3" id="weeklyOptions" style="display: none;">
-                                            <label class="form-label">Days of the Week</label>
+                                            <label class="form-label">Haftaning kunlari</label>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="monday" id="mon">
-                                                        <label class="form-check-label" for="mon">Monday</label>
+                                                        <label class="form-check-label" for="mon">Dushanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="tuesday" id="tue">
-                                                        <label class="form-check-label" for="tue">Tuesday</label>
+                                                        <label class="form-check-label" for="tue">Seshanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="wednesday" id="wed">
-                                                        <label class="form-check-label" for="wed">Wednesday</label>
+                                                        <label class="form-check-label" for="wed">Chorshanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="thursday" id="thu">
                                                         <label class="form-check-label"
-                                                            for="thu">Thursday</label>
+                                                            for="thu">Payshanba</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="friday" id="fri">
-                                                        <label class="form-check-label" for="fri">Friday</label>
+                                                        <label class="form-check-label" for="fri">Juma</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="saturday" id="sat">
                                                         <label class="form-check-label"
-                                                            for="sat">Saturday</label>
+                                                            for="sat">Shanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
                                                             type="checkbox" value="sunday" id="sun">
-                                                        <label class="form-check-label" for="sun">Sunday</label>
+                                                        <label class="form-check-label" for="sun">Yakshanba</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@
 
                                         <!-- Monthly Options -->
                                         <div class="mb-3" id="monthlyOptions" style="display: none;">
-                                            <label class="form-label">Days of the Month</label>
+                                            <label class="form-label">Oyning kunlari</label>
                                             <div class="monthly-checkboxes border rounded p-3">
                                                 <div class="row" id="monthlyDaysContainer">
                                                     <!-- Generated by JavaScript -->
@@ -155,7 +155,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label">Deployment Date Range</label>
+                                            <label class="form-label">Eslatma muddati</label>
                                             <div class="d-flex gap-3">
                                                 <input type="date" name="start_date" class="form-control"
                                                     min="{{ date('Y-m-d') }}">
@@ -165,7 +165,7 @@
                                         </div>
                                         <!-- Event Times -->
                                         <div class="mb-3">
-                                            <label class="form-label">Event Times</label>
+                                            <label class="form-label">Eslatma vaqtlari</label>
                                             <div id="eventTimesContainer">
                                                 <div class="time-input-group d-flex align-items-center">
                                                     <select name="event_times[]" class="form-select me-2">
@@ -173,17 +173,17 @@
                                                     </select>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                         onclick="removeTimeInput(this)"
-                                                        style="display: none;">Remove</button>
+                                                        style="display: none;">O`chirish</button>
                                                 </div>
                                             </div>
                                             <button type="button" class="btn btn-success btn-sm mt-2"
-                                                onclick="addTimeInput()">Add Time</button>
+                                                onclick="addTimeInput()">Vaqt qo`shish</button>
                                         </div>
 
                                         <!-- Submit Button -->
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
-                                                Save Deployment Strategy
+                                                Saqlash
                                             </button>
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@
             <select class="form-select me-2" name="event_times[]">
                 <!-- Will be populated by initializeTimeOptions -->
             </select>
-            <button type="button" class="btn btn-danger btn-sm" onclick="removeTimeInput(this)">Remove</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="removeTimeInput(this)">O'chirish</button>
         `;
 
                     container.appendChild(newTimeGroup);
@@ -315,9 +315,9 @@
 
                 // Update preview
                 function updatePreview() {
-                    const title = document.getElementById('title').value || 'Untitled';
+                    const title = document.getElementById('title').value || 'Nomsiz';
                     const color = document.getElementById('color').value;
-                    const description = document.getElementById('description').value || 'No description';
+                    const description = document.getElementById('description').value || 'Tavsif yo`q';
                     const frequency = document.getElementById('frequency').value;
 
                     document.getElementById('previewTitle').textContent = title;
@@ -330,15 +330,15 @@
                     let frequencyDetails = '';
                     if (frequency === 'daily') {
                         const interval = document.getElementById('dailyInterval').value;
-                        frequencyDetails = `<strong>Interval:</strong> Every ${interval} day(s)`;
+                        frequencyDetails = `<strong>Interval:</strong> Har ${interval} kun`;
                     } else if (frequency === 'weekly') {
                         const selectedDays = Array.from(document.querySelectorAll('#weeklyOptions input:checked')).map(cb => cb
                             .value);
-                        frequencyDetails = `<strong>Days:</strong> ${selectedDays.join(', ') || 'None selected'}`;
+                        frequencyDetails = `<strong>Kunlar:</strong> ${selectedDays.join(', ') || 'Tanlanmagan'}`;
                     } else if (frequency === 'monthly') {
                         const selectedDays = Array.from(document.querySelectorAll('#monthlyOptions input:checked')).map(cb => cb
                             .value);
-                        frequencyDetails = `<strong>Days:</strong> ${selectedDays.join(', ') || 'None selected'}`;
+                        frequencyDetails = `<strong>Kunlar:</strong> ${selectedDays.join(', ') || 'Tanlanmagan'}`;
                     }
                     document.getElementById('previewFrequencyDetails').innerHTML = frequencyDetails;
 
