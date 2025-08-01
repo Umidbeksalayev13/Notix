@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
+    <title>Notix - Eslatmalar dasturi</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- plugins:css -->
@@ -46,7 +46,7 @@
                                     <i class="icon-search"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Izlash"
                                 aria-label="search" aria-describedby="search">
                         </div>
                     </li>
@@ -60,7 +60,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                             aria-labelledby="notificationDropdown">
-                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">Eslatmalar</p>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
                                     <div class="preview-icon bg-success">
@@ -68,8 +68,8 @@
                                     </div>
                                 </div>
                                 <div class="preview-item-content">
-                                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted"> Just now </p>
+                                    <h6 class="preview-subject font-weight-normal">Dastur xatosi</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted"> Hozir </p>
                                 </div>
                             </a>
                             <a class="dropdown-item preview-item">
@@ -79,8 +79,8 @@
                                     </div>
                                 </div>
                                 <div class="preview-item-content">
-                                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted"> Private message </p>
+                                    <h6 class="preview-subject font-weight-normal">Sozlamalar</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted"> Shaxsiy xabar </p>
                                 </div>
                             </a>
                             <a class="dropdown-item preview-item">
@@ -90,8 +90,8 @@
                                     </div>
                                 </div>
                                 <div class="preview-item-content">
-                                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted"> 2 days ago </p>
+                                    <h6 class="preview-subject font-weight-normal">Foydalanuvchini ro'yxatdan o'tkizish</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted"> 2 kun oldin </p>
                                 </div>
                             </a>
                         </div>
@@ -104,10 +104,10 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
                             <a class="dropdown-item"  href="{{route('profile.edit')}}">
-                                <i class="ti-settings text-primary"></i> Settings </a>
+                                <i class="ti-settings text-primary"></i> Sozlamalar </a>
 
                             <a href="#" id="logout-link" class="dropdown-item">
-                                <i class="ti-power-off text-primary"></i> Logout </a>
+                                <i class="ti-power-off text-primary"></i> Chiqish </a>
 
                         </div>
                     </li>
@@ -131,7 +131,7 @@
                     <li class="nav-item ">
                         <a class="nav-link " href="{{ route('dashboard.index') }}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-arrow">Dashboard</span>
+                            <span class="menu-arrow">Panel</span>
                         </a>
                     </li>
                     <li class="nav-item">

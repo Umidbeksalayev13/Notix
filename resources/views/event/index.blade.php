@@ -8,11 +8,11 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h2 class="mb-1">📅 My Events</h2>
-                            <p class="text-muted mb-0">Manage your scheduled events and reminders</p>
+                            <h2 class="mb-1">📅 Mening eslatmalarim</h2>
+                            <p class="text-muted mb-0">Eslatmalarni boshqaring</p>
                         </div>
                         <a href="{{ route('dashboard.events.create') }}" class="btn btn-primary">
-                            <i class="mdi mdi-calendar-plus"></i>Add New Event
+                            <i class="mdi mdi-calendar-plus">Yangi eslatma yaratish</i>
                         </a>
                     </div>
                 </div>
@@ -24,25 +24,25 @@
             <ul class="nav nav-pills nav-fill bg-light rounded p-1">
                 <li class="nav-item">
                     <a class="nav-link active" href="#all" data-bs-toggle="pill">
-                        <i class="mdi mdi-view-headline"></i>All Events
+                        <i class="mdi mdi-view-headline">Barcha eslatmalar</i>
                         <span class="badge bg-secondary ms-2">{{ $events->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#daily" data-bs-toggle="pill">
-                        <i class="fas fa-sun me-2"></i>Daily
+                        <i class="fas fa-sun me-2">Kunlik</i>
                         <span class="badge bg-warning ms-2">{{ $events->where('repeat_type', 'daily')->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#weekly" data-bs-toggle="pill">
-                        <i class="fas fa-calendar-week me-2"></i>Weekly
+                        <i class="fas fa-calendar-week me-2">Haftalik</i>
                         <span class="badge bg-info ms-2">{{ $events->where('repeat_type', 'weekly')->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#monthly" data-bs-toggle="pill">
-                        <i class="fas fa-calendar-alt me-2"></i>Monthly
+                        <i class="fas fa-calendar-alt me-2">Oylik</i>
                         <span class="badge bg-success ms-2">{{ $events->where('repeat_type', 'monthly')->count() }}</span>
                     </a>
                 </li>
@@ -65,11 +65,11 @@
                                     <div class="text-white">
                                         <span class="badge bg-white text-dark me-2">
                                             @if($event->repeat_type == 'daily')
-                                                <i class="fas fa-sun"></i> Daily
+                                                <i class="fas fa-sun">Kunlik</i> 
                                             @elseif($event->repeat_type == 'weekly')
-                                                <i class="fas fa-calendar-week"></i> Weekly
+                                                <i class="fas fa-calendar-week">Haftalik</i> 
                                             @else
-                                                <i class="fas fa-calendar-alt"></i> Monthly
+                                                <i class="fas fa-calendar-alt">Oylik</i> 
                                             @endif
                                         </span>
                                         <small class="opacity-75">{{ ucfirst($event->status) }}</small>
@@ -80,7 +80,7 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li><a class="dropdown-item" href="{{ route('dashboard.events.edit', $event->id) }}">
-                                                <i class="fas fa-edit me-2"></i>Edit
+                                                <i class="fas fa-edit me-2">Tahrirlash</i>
                                             </a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li>
@@ -88,7 +88,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="dropdown-item text-danger" onclick="return confirm('Are you sure?')">
-                                                        <i class="fas fa-trash me-2"></i>Delete
+                                                        <i class="fas fa-trash me-2">O`chirish</i>
                                                     </button>
                                                 </form>
                                             </li>
@@ -103,7 +103,7 @@
 
                                     <!-- Schedule Info -->
                                     <div class="mb-3">
-                                        <h6 class="text-muted mb-2"><i class="fas fa-clock me-2"></i>Schedule:</h6>
+                                        <h6 class="text-muted mb-2"><i class="fas fa-clock me-2">Re`ja:</i></h6>
 
                                         @if($event->repeat_type == 'weekly' && $event->repeat_days_moth)
                                             @php
@@ -149,11 +149,11 @@
                                         </small>
                                         @if($event->status == 'active')
                                             <span class="badge bg-success">
-                                                <i class="fas fa-check-circle me-1"></i>Active
+                                                <i class="fas fa-check-circle me-1">Active</i>
                                             </span>
                                         @else
                                             <span class="badge bg-secondary">
-                                                <i class="fas fa-pause-circle me-1"></i>Inactive
+                                                <i class="fas fa-pause-circle me-1">To`xtatilgan</i>
                                             </span>
                                         @endif
                                     </div>
@@ -168,10 +168,10 @@
                     <div class="mb-4">
                         <i class="fas fa-calendar-times fa-5x text-muted opacity-25"></i>
                     </div>
-                    <h4 class="text-muted mb-3">No Events Found</h4>
-                    <p class="text-muted mb-4">You haven't created any events yet. Start by adding your first event!</p>
+                    <h4 class="text-muted mb-3">Eslatmalar topilmadi</h4>
+                    <p class="text-muted mb-4">Sizda eslatmalar mavjud emas. Ularni yarating!</p>
                     <a href="{{ route('dashboard.events.create') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-plus me-2"></i>Create Your First Event
+                        <i>Eslatma yaratish</i>
                     </a>
                 </div>
             @endif
@@ -187,7 +187,7 @@
                             <div class="card-header border-0"
                                  style="background: linear-gradient(135deg, {{ $event->colors ?? '#ffc107' }}, {{ $event->colors ?? '#ffc107' }}cc);">
                                 <span class="badge bg-white text-dark">
-                                    <i class="fas fa-sun"></i> Daily
+                                    <i class="fas fa-sun">Kunlik</i>
                                 </span>
                             </div>
                             <div class="card-body">
@@ -210,9 +210,7 @@
                             <div class="card-header border-0"
                                  style="background: linear-gradient(135deg, {{ $event->colors ?? '#17a2b8' }}, {{ $event->colors ?? '#17a2b8' }}cc);">
                                 <span class="badge bg-white text-dark">
-                                    <i class="fas fa-calendar-week"></i> Weekly
-                                </span>
-                            </div>
+                                    <i class="fas fa-calendar-week">Haftalik
                             <div class="card-body">
                                 <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-text text-muted">{{ Str::limit($event->description, 100) }}</p>
@@ -243,7 +241,7 @@
                             <div class="card-header border-0"
                                  style="background: linear-gradient(135deg, {{ $event->colors ?? '#28a745' }}, {{ $event->colors ?? '#28a745' }}cc);">
                                 <span class="badge bg-white text-dark">
-                                    <i class="fas fa-calendar-alt"></i> Monthly
+                                    <i class="fas fa-calendar-alt">Oylik</i>
                                 </span>
                             </div>
                             <div class="card-body">
