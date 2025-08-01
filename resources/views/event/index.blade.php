@@ -99,7 +99,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <h5 class="card-title mb-3">{{ $event->title }}</h5>
-                                    <p class="card-text text-muted mb-3">{{ Str::limit($event->description, 100) }}</p>
+                                    <p class="card-text text-muted mb-3">{{ Str::limit($event->description, 200) }}</p>
 
                                     <!-- Schedule Info -->
                                     <div class="mb-3">
@@ -129,7 +129,7 @@
 
                                         @if($event->start_date)
                                             @php
-                                                $eventTimes = json_decode($event->start_date, true) ?? [];
+                                                $eventTimes = json_decode($event->repeat_interval, true) ?? [];
                                             @endphp
                                             <div class="d-flex flex-wrap gap-1">
                                                 @foreach($eventTimes as $time)
