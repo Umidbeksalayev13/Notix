@@ -12,7 +12,6 @@ Route::get('/', function () {
 Route::prefix('/dashboard')->middleware('auth')->name('dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('events', EventsController::class);
-    Route::resource('events', EventsController::class);
 });
 
 Route::post('/telegram/account', [UserAccountController::class, 'store'])->name('telegram.account');
