@@ -32,19 +32,21 @@ class Telegram
 
                 if ($user_id && is_numeric($user_id)) {
                     // 1. Avval chat_id bazada mavjudmi, tekshiramiz
-                    $existing = UserAccount::where('chat_id', $chat_id)->first();
+                    $existing = UserAccount::where('chat_id', $chat_id)
+                                             ->where('user_id', $user_id)
+                                             ->first();
 
                     // 2. Agar bor bo‘lsa va user_id boshqa bo‘lsa => xabar yuboramiz
-                    if ($existing && $existing->user_id != $user_id) {
-                        self::send($chat_id, "❗ Ushbu Telegram akkaunt allaqachon boshqa foydalanuvchi bilan bog‘langan.");
+                    if ($existing) {
+                        self::send($chat_id, "❗ Ushbu Telegram akkaunt allaqachon sizga bog‘langan.");
                         return;
                     }
 
                     // 3. Bo‘lmasa, update yoki create
-                    UserAccount::updateOrCreate(
-                        ['user_id' => $user_id],
-                        ['chat_id' => $chat_id]
-                    );
+                    UserAccount::create([
+                        'user_id' => $user_id,
+                        'chat_id' => $chat_id
+                    ]);
 
                     self::send($chat_id, "✅ Telegram akkauntingiz muvaffaqiyatli bog‘landi.");
                 } else {
