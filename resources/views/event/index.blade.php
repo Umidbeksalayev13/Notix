@@ -76,19 +76,19 @@
                                     </div>
                                     <div class="dropdown">
                                         <button class="btn btn-link text-white p-0" data-bs-toggle="dropdown">
-                                            <i class="fas fa-ellipsis-v"></i>
+                                            <i>-</i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end">
                                             <li><a class="dropdown-item" href="{{ route('dashboard.events.edit', $event->id) }}">
-                                                <i class="fas fa-edit me-2">Tahrirlash</i>
+                                                <i>Tahrirlash</i>
                                             </a></li>
                                             <li><hr class="dropdown-divider"></li>
                                             <li>
                                                 <form action="{{ route('dashboard.events.destroy', $event->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="dropdown-item text-danger" onclick="return confirm('Are you sure?')">
-                                                        <i class="fas fa-trash me-2">O`chirish</i>
+                                                    <button class="dropdown-item text-danger" onclick="return confirm('Rozimisiz?')">
+                                                        <i>O`chirish</i>
                                                     </button>
                                                 </form>
                                             </li>
@@ -145,15 +145,15 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-muted">
                                             <i class="fas fa-calendar-plus me-1"></i>
-                                            Created {{ $event->created_at->diffForHumans() }}
+                                            Yaratildi: {{ $event->created_at->diffForHumans() }}
                                         </small>
                                         @if($event->status == 'active')
                                             <span class="badge bg-success">
-                                                <i class="fas fa-check-circle me-1">Active</i>
+                                                <i>Faol</i>
                                             </span>
                                         @else
                                             <span class="badge bg-secondary">
-                                                <i class="fas fa-pause-circle me-1">To`xtatilgan</i>
+                                                <i>To`xtatilgan</i>
                                             </span>
                                         @endif
                                     </div>
