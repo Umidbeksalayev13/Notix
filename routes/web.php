@@ -5,13 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\CalendarController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::prefix('/dashboard')->middleware('auth')->name('dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
     Route::resource('events', EventsController::class);
+
 });
 
 Route::post('/telegram/account', [UserAccountController::class, 'store'])->name('telegram.account');
