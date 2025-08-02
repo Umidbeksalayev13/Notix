@@ -18,7 +18,7 @@ class EventsController extends Controller
          $events = Events::where('user_id', Auth::id())
                    ->orderBy('created_at', 'desc')
                    ->get();
-
+        // dd($events);
     return view('event.index', compact('events'));
     }
 

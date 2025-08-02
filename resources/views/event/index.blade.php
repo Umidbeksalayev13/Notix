@@ -105,9 +105,11 @@
                                     <div class="mb-3">
                                         <h6 class="text-muted mb-2"><i class="fas fa-clock me-2">Re`ja:</i></h6>
 
-                                        @if($event->repeat_type == 'weekly' && $event->repeat_days_moth)
+                                        @if($event->repeat_type == 'weekly' && $event->repeat_days_week)
                                             @php
-                                                $weeklyDays = json_decode($event->repeat_days_moth, true) ?? [];
+                                              $weeklyDays = explode(',', $event->repeat_days_week);
+                                                $weeklyDays = array_filter(array_map('trim', $weeklyDays));
+
                                             @endphp
                                             <div class="d-flex flex-wrap gap-1 mb-2">
                                                 @foreach($weeklyDays as $day)
@@ -116,9 +118,10 @@
                                             </div>
                                         @endif
 
-                                        @if($event->repeat_type == 'monthly' && $event->repeat_days_moth)
+                                        @if($event->repeat_type == 'monthly' && $event->repeat_days_month)
                                             @php
-                                                $monthlyDays = json_decode($event->repeat_days_moth, true) ?? [];
+                                                $monthlyDays = explode(',', $event->repeat_days_month);
+                                                $monthlyDays = array_filter(array_map('trim', $monthlyDays));
                                             @endphp
                                             <div class="d-flex flex-wrap gap-1 mb-2">
                                                 @foreach($monthlyDays as $day)
@@ -192,7 +195,7 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $event->title }}</h5>
-                                <p class="card-text text-muted">{{ Str::limit($event->description, 100) }}</p>
+                                <p class="card-text text-muted">{{ Str::limit($event->description, 200) }}</p>
                             </div>
                         </div>
                     </div>
@@ -213,10 +216,10 @@
                                     <i class="fas fa-calendar-week">Haftalik
                             <div class="card-body">
                                 <h5 class="card-title">{{ $event->title }}</h5>
-                                <p class="card-text text-muted">{{ Str::limit($event->description, 100) }}</p>
-                                @if($event->repeat_days_moth)
+                                <p class="card-text text-muted">{{ Str::limit($event->description, 200) }}</p>
+                                @if($event->repeat_days_week)
                                     @php
-                                        $days = json_decode($event->repeat_days_moth, true) ?? [];
+                                        $days = json_decode($event->repeat_days_week, true) ?? [];
                                     @endphp
                                     <div class="mb-2">
                                         @foreach($days as $day)
@@ -230,7 +233,6 @@
                 @endforeach
             </div>
         </div>
-
         <!-- Monthly Events Tab -->
         <div class="tab-pane fade" id="monthly">
             <div class="row">
@@ -247,9 +249,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $event->title }}</h5>
                                 <p class="card-text text-muted">{{ Str::limit($event->description, 100) }}</p>
-                                @if($event->repeat_days_moth)
+                                @if($event->repeat_days_month)
                                     @php
-                                        $days = json_decode($event->repeat_days_moth, true) ?? [];
+                                     $days = explode(',', $event->repeat_days_month);
+                                    $days = array_filter(array_map('trim', $days));
+
                                     @endphp
                                     <div class="mb-2">
                                         @foreach($days as $day)
@@ -264,8 +268,11 @@
             </div>
 
 
+
+
+@include('layouts.footer')
 <style>
-<style>
+
     .hover-shadow {
         transition: all 0.3s ease;
     }
@@ -296,9 +303,9 @@
         font-size: 0.75em;
     }
 </style>
-</style>
 
-<script>
+
+@stack('style')
 <script>
     // Filter functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -342,5 +349,5 @@
         }, 3000);
     @endif
 </script>
+@stack('script')
 
-@include('layouts.footer')
