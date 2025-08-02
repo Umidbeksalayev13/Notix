@@ -34,7 +34,9 @@ class TelegramCommand extends Command
 
             if (!empty($updates['result'])) {
                 foreach ($updates['result'] as $update) {
-                    Telegram::run($update['message']);
+                    if(isset($update['message'])){
+                        Telegram::run($update['message']);
+                    }
                     $update_id = $update['update_id'] + 1;
                 }
             }
