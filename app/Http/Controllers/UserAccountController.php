@@ -26,4 +26,9 @@ class UserAccountController extends Controller
 
         return back()->with('success', 'Telegram hisobingiz muvaffaqiyatli ulandi!');
     }
+
+    public function accounts(){
+        $accounts=UserAccount::where('user_id',Auth::id())->get();
+        return view('accounts.index',compact('accounts'));
+    }
 }
