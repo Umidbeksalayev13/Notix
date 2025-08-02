@@ -62,19 +62,26 @@ switch ($request->repeat_type) {
 }
 
             // Event yaratish
-            Events::create([
+           $event= Events::create([
                 'user_id' => Auth::id(),
                 'title' => $request->title,
                 'description' => $request->description,
                 'colors' => $request->color,
                 'repeat_type' => $request->repeat_type,
-                'repeat_interval' =>  json_encode($request->event_times),
-                'repeat_days_moth' => json_encode($repeatDays),
+                'repeat_interval' => $request->repeat_type === 'daily' ? $repeatDays : null,
+                'repeat_days_week' => $request->repeat_type === 'weekly' ? implode(',', $request->weekly_days) : null,
+                'repeat_days_month' => $request->repeat_type === 'monthly' ? implode(',', $request->monthly_days) : null,
                 'start_date' =>$request->start_date,
-                'end_date' => $request->end_date, 
+                'end_date' => $request->end_date,
                 'status' => 'active'
             ]);
+            foreach ($request->event_times as $time) {
+                Time::create([
+                    'events_id' => $event->id,
+                    'start_time' => $time,
 
+                ]);
+            }
             return redirect()->route('dashboard.events.index')
                 ->with('success', 'Event muvaffaqiyatli yaratildi!');
         }

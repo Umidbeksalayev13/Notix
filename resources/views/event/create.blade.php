@@ -104,22 +104,22 @@
                                                 <div class="col-md-6">
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="monday" id="mon">
+                                                            type="checkbox" value="1" id="mon">
                                                         <label class="form-check-label" for="mon">Dushanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="tuesday" id="tue">
+                                                            type="checkbox" value="2" id="tue">
                                                         <label class="form-check-label" for="tue">Seshanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="wednesday" id="wed">
+                                                            type="checkbox" value="3" id="wed">
                                                         <label class="form-check-label" for="wed">Chorshanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="thursday" id="thu">
+                                                            type="checkbox" value="4" id="thu">
                                                         <label class="form-check-label"
                                                             for="thu">Payshanba</label>
                                                     </div>
@@ -127,18 +127,18 @@
                                                 <div class="col-md-6">
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="friday" id="fri">
+                                                            type="checkbox" value="5" id="fri">
                                                         <label class="form-check-label" for="fri">Juma</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="saturday" id="sat">
+                                                            type="checkbox" value="6" id="sat">
                                                         <label class="form-check-label"
                                                             for="sat">Shanba</label>
                                                     </div>
                                                     <div class="form-check day-checkbox">
                                                         <input name="weekly_days[]" class="form-check-input"
-                                                            type="checkbox" value="sunday" id="sun">
+                                                            type="checkbox" value="7" id="sun">
                                                         <label class="form-check-label" for="sun">Yakshanba</label>
                                                     </div>
                                                 </div>

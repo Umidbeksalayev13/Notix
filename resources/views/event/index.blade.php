@@ -65,11 +65,11 @@
                                     <div class="text-white">
                                         <span class="badge bg-white text-dark me-2">
                                             @if($event->repeat_type == 'daily')
-                                                <i class="fas fa-sun">Kunlik</i> 
+                                                <i class="fas fa-sun">Kunlik</i>
                                             @elseif($event->repeat_type == 'weekly')
-                                                <i class="fas fa-calendar-week">Haftalik</i> 
+                                                <i class="fas fa-calendar-week">Haftalik</i>
                                             @else
-                                                <i class="fas fa-calendar-alt">Oylik</i> 
+                                                <i class="fas fa-calendar-alt">Oylik</i>
                                             @endif
                                         </span>
                                         <small class="opacity-75">{{ ucfirst($event->status) }}</small>
@@ -129,7 +129,7 @@
 
                                         @if($event->start_date)
                                             @php
-                                                $eventTimes = json_decode($event->repeat_interval, true) ?? [];
+                                                $eventTimes = $event->times()->pluck('start_time', 'id')->toArray();
                                             @endphp
                                             <div class="d-flex flex-wrap gap-1">
                                                 @foreach($eventTimes as $time)
