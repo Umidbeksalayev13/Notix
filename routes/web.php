@@ -18,6 +18,7 @@ Route::prefix('/dashboard')->middleware('auth')->name('dashboard.')->group(funct
 
 Route::post('/telegram/account', [UserAccountController::class, 'store'])->name('telegram.account');
 
+Route::get('/accounts',[UserAccountController::class,'accounts'])->name('accounts');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

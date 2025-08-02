@@ -141,8 +141,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" >
-                            <i class="ti-settings menu-icon"></i>
+                        <a class="nav-link" href="{{ route('accounts') }}">
+                            <i class="ti-settings menu-icon" > </i>
                             <span class="menu-arrow ">Sozlamalar</span>
                         </a>
                     </li>

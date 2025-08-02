@@ -95,6 +95,8 @@ class Telegram
 
             return [
                 'title' => $event->title,
+                'description' => $event->description,
+                'user_id' => $event->user_id,
                 'start' => $date . 'T' . $start_time,
                 'color' => $event->colors
             ];
